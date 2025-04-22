@@ -22,6 +22,7 @@
             <input type="number" name="canvasWidth" id="canvasWidthTextBox">
             <h2>Canvas's height</h2>
             <input type="number" name="canvasHeight" id="canvasHeightTextBox">
+            <input type="submit" value="Generate" id="submitButton" disabled>
         </form>
     </div>
     <script src="scripts/ruleOfThird.js"></script>
