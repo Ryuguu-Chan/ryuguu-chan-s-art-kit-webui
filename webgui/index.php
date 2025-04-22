@@ -17,7 +17,13 @@
         <!-- TODO: faire le menu ici -->
     </div>
     <div class="content">
-
+        <form action="actions/ruleOfThird.php" method="post">
+            <h2>Canvas's width</h2>
+            <input type="number" name="canvasWidth" id="canvasWidthTextBox">
+            <h2>Canvas's height</h2>
+            <input type="number" name="canvasHeight" id="canvasHeightTextBox">
+        </form>
     </div>
+    <script src="scripts/ruleOfThird.js"></script>
 </body>
 </html>
