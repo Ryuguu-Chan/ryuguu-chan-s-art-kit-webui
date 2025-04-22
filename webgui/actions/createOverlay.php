@@ -79,7 +79,7 @@ if (isset($_POST['canvasWidth']) && isset($_POST['canvasHeight'])) {
         $currentWidth = $width;
         $currentHeight = $height;
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 90; $i++) {
             imagerectangle(
                 $img,
                 (int)$x,
