@@ -1,19 +1,5 @@
 <?php
 
-// a/b = (a+b)/a = 1.618 (phi).
-function partition($length) {
-
-    // nani?
-    $PHI = 1.618;
-    $b = $length / ($PHI+1);
-    $a = $PHI + $b;
-
-    return [
-        "a" => $a,
-        "b" => $b
-    ];
-}
-
 if (isset($_POST['canvasWidth']) && isset($_POST['canvasHeight'])) {
         
     header('Content-Type: image/png');
@@ -78,15 +64,44 @@ if (isset($_POST['canvasWidth']) && isset($_POST['canvasHeight'])) {
         
         // source: https://blog.ansi.org/the-golden-ratio-standard-art-nature-space-time/?gad_source=1&gclid=Cj0KCQjw_JzABhC2ARIsAPe3ynp3xxqzxqiVxj7NVMA1R0u96wtmNhk0udkPAZ7B5K3NsshFzC3iLtEaAt2ZEALw_wcB
 
-        include '../models/Rect.php';
+        $PHI = (1 + sqrt(5)) / 2;
+
         header('Content-Disposition: attachment; filename="GoldenRatio.png"');
 
-        $img = @imagecreatetruecolor($width, $height) or die ("cannot create the GD image stream");
+        $transparent = imagecolorallocatealpha($img, 0, 0, 0, 127);
+        imagefill($img, 0, 0, $transparent);
+        
+        $backgroundColor = imagecolorallocate($img, 0, 0, 0);
+        $lineColor = imagecolorallocate($img, 255, 0, 0);
 
-        for ($i = 0; $i < 8; $i++) {
-            
+        $x = 0;
+        $y = 0;
+        $currentWidth = $width;
+        $currentHeight = $height;
+
+        for ($i = 0; $i < 10; $i++) {
+            imagerectangle(
+                $img,
+                (int)$x,
+                (int)$y,
+                (int)($x+$currentWidth),
+                (int)($y+$currentHeight),
+                $lineColor
+            );
+
+            // changing the dimension
+            if ($currentWidth > $currentHeight) {
+                $newWidth = ($currentWidth / $PHI);
+                $x += $currentWidth - $newWidth;
+                $currentWidth = $newWidth;
+                
+            }
+            else {
+                $newHeight = ($currentHeight / $PHI);
+                $y += $currentHeight - $newHeight;
+                $currentHeight = $newHeight;
+            }
         }
-
     }
     
     imagepng($img);
