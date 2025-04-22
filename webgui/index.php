@@ -17,14 +17,15 @@
         <!-- TODO: faire le menu ici -->
     </div>
     <div class="content">
-        <form action="actions/ruleOfThird.php" method="post">
+        <form action="actions/createOverlay.php" method="post">
             <h2>Canvas's width</h2>
             <input type="number" name="canvasWidth" id="canvasWidthTextBox">
             <h2>Canvas's height</h2>
             <input type="number" name="canvasHeight" id="canvasHeightTextBox">
-            <input type="submit" value="Generate" id="submitButton" disabled>
+            <input type="submit" name="ruleOfThirdSubmission" value="Generate a rule of third overlay" class="submissionButton" disabled>
+            <input type="submit" name="goldenRatioSubmission" value="Generate a golden ratio overlay" class="submissionButton" disabled>
         </form>
     </div>
-    <script src="scripts/ruleOfThird.js"></script>
+    <script src="scripts/form.js"></script>
 </body>
 </html>

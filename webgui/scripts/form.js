@@ -1,14 +1,14 @@
 document.body.onload = function() {
     let widthTextBox = document.getElementById("canvasWidthTextBox");
     let heightTextBox = document.getElementById("canvasHeightTextBox");
-    let submitButton = document.getElementById("submitButton");
+    
+    let submissionButtons = document.getElementsByClassName("submissionButton");
 
     let previousWidthValue = widthTextBox.value;
     let previousHeightValue = heightTextBox.value;
 
-    function validate(width, height) {
-        console.log(width > 0 && height > 0);
-        (width > 0 && height > 0) ? submitButton.toggleAttribute("disabled", false) : submitButton.toggleAttribute("disabled", true);
+    function validate(width, height, submissionButton) {
+        (width > 0 && height > 0) ? submissionButton.toggleAttribute("disabled", false) : submissionButton.toggleAttribute("disabled", true);
     }
 
     widthTextBox.onkeyup = function(e) {
@@ -19,7 +19,9 @@ document.body.onload = function() {
             previousWidthValue = widthTextBox.value;
         }
 
-        validate(widthTextBox.value, heightTextBox.value);
+        for (let i = 0; i < submissionButtons.length; i++) {
+            validate(widthTextBox.value, heightTextBox.value, submissionButtons[i]);
+        }
     }
 
     heightTextBox.onkeyup = function(e) {
@@ -30,6 +32,8 @@ document.body.onload = function() {
             previousHeightValue = heightTextBox.value;
         }
 
-        validate(widthTextBox.value, heightTextBox.value);
+        for (let i = 0; i < submissionButtons.length; i++) {
+            validate(widthTextBox.value, heightTextBox.value, submissionButtons[i]);
+        }
     }
 }
