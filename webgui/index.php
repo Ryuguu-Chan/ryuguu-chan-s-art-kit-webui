@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/main.css" media="all">
+    <link rel="stylesheet" href="styles/phone.css" media="screen and (max-width: 800px)">
     <title><?= $strings["appTitle"]." (v".$strings["version"].")"; ?></title>
 </head>
 <body>

@@ -1,0 +1,13 @@
+.content {
+    display: block;
+    margin-left: 0;
+}
+
+.content > form > .inputField {
+    position: unset;
+}
+
+.submissionButton {
+    font-size: 20px;
+    padding: 10px;
+}
