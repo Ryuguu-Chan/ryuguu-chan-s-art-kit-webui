@@ -4,6 +4,7 @@
 if (isset($_POST['canvasWidth']) && isset($_POST['canvasHeight'])) {
         
     header('Content-Type: image/png');
+    header('Content-Disposition: attachment; filename="RuleOfThird.png"');
 
     $width = $_POST['canvasWidth'];
     $height = $_POST['canvasHeight'];
